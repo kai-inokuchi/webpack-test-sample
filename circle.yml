@@ -1,0 +1,18 @@
+machine:
+  node:
+    version: 0.12.7
+
+dependencies:
+  override:
+    - mvn --fail-never dependency:go-offline || true
+    - npm install
+  cache_directories:
+    - ~/.m2
+    - ~/webpack-test-sample/node_modules
+
+test:
+  override:
+    - "mvn clean test jacoco:report coveralls:report -DdryRun -DcoverallsFile=coverage/java.json"
+    - node_modules/gulp/bin/gulp.js test
+    - node_modules/gulp/bin/gulp.js coveralls:merge
+    - "[ -d coverage/ ] && rm -rf coverage/"

@@ -1,5 +1,7 @@
 # webpack-test-sample
 
+[![Coverage Status](https://coveralls.io/repos/kainoku/webpack-test-sample/badge.svg?branch=master&service=github)](https://coveralls.io/github/kainoku/webpack-test-sample?branch=master)
+
 ## Install
 
 ```
